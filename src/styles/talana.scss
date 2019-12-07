@@ -1,0 +1,257 @@
+@font-face {
+  font-family: Roboto;
+  src: url("~@/assets/fonts/RobotoMono-Regular.ttf") format("truetype");
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.talana-app {
+  display: flex;
+  flex-direction: column;
+  font: normal normal 13px/1.4 "Roboto";
+  text-rendering: optimizeLegibility;
+
+  #app {
+    flex: 1;
+    display: flex;
+  }
+}
+
+.talana-main-layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 80px auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+
+  .talana-logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    .talana-logo__wrapper {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .talana-head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 30px;
+
+    .talana-search__wrapper {
+      padding-right: 2em;
+      width: 30%;
+
+      input {
+        width: 100%;
+        border-radius: 3px;
+        border: solid 1px gray;
+        height: 30px;
+      }
+    }
+  }
+
+  .talana-categories {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #333333;
+
+    .talana-categories__item {
+      display: block;
+      color: white;
+      padding: 16px;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #a8bcbe;
+      }
+
+      &.talana-categories__item-selected {
+        box-shadow: inset 8px 0 #90a5a9;
+      }
+    }
+  }
+
+  .talana-content {
+    padding: 40px;
+
+    .talana-product__image {
+      display: flex;
+      justify-content: center;
+
+      img {
+        height: 130px;
+      }
+    }
+
+    .talana-product {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .talana-product__item {
+      display: inline-flex;
+    }
+
+    .talana-product__wrapper {
+      display: flex;
+      width: 180px;
+      max-width: 180px;
+      flex-direction: column;
+    }
+
+    .talana-product__add {
+      display: flex;
+    }
+
+    .talana-product__add input {
+      width: 50%;
+    }
+  }
+
+  .talana-cart__wrapper {
+    position: relative;
+
+    .talana-cart__button {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      padding: 6px 30px;
+      background-color: #7b7b9a;
+      color: white;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .talana-cart__modal {
+      display: flex;
+      position: fixed;
+      width: 500px;
+      /* height: calc(100% - 80px); */
+      height: auto;
+      right: 10px;
+      background: white;
+      border-radius: 3px;
+      border: solid 1px #9999b5;
+      margin-top: 20px;
+
+      .talana-cart__products {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        flex: 1;
+        flex-direction: column;
+
+        .talana-cart__item {
+          span {
+            width: 40px;
+            display: inline-flex;
+          }
+
+          a {
+            right: 0;
+            width: 80px;
+            display: inline-flex;
+            position: absolute;
+            margin-right: 20px;
+            padding: 1px 15px;
+            justify-content: center;
+            align-content: center;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #333333;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
